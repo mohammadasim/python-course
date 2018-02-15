@@ -15,4 +15,8 @@ print my_string[-1]
 # the last character in the string.
 print my_string[::-1]
 
-print my_string[0:-1:2]
+print len(my_string)
+
+# We can use special escape characters in python, For example \n can be used to tell python we want a new line, as hown bellow.
+another_string = "I'm going on a run. \nBut it is raining my buddy said."
+print another_string
