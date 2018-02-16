@@ -20,3 +20,14 @@ print len(my_string)
 # We can use special escape characters in python, For example \n can be used to tell python we want a new line, as hown bellow.
 another_string = "I'm going on a run. \nBut it is raining my buddy said."
 print another_string
+
+# If we want to get part of a string starting a particular index, we use the following syntax
+string = 'abcdefghj'
+print(string[2:])
+
+# If we want to get part of a string starting from the begining and till index 4, then we use the following syntax. 
+# Please note that it is till index 4 but not including index 4.
+print(string[:4])
+
+# Combining the above the above, if we want to grad 'def' from the above string, we will use the following syntax.
+print(string[3:6])
