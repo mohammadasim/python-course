@@ -7,3 +7,9 @@ print (my_dic['key1'])
 
 my_other_dic = {2:3,4:5}
 print(my_other_dic[2])
+
+# Dictionary like list are flexible with holding elements, they can be string, int, float, list or even other dictionaries.
+
+d = {'k1':100, 'k2':200}
+d['k3'] = 300
+print (d)
