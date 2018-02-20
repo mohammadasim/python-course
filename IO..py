@@ -24,3 +24,13 @@ my_file.close()
 with open('test.txt') as my_new_file:
     contents = my_new_file.read()
     print(contents)
+
+with open('test.txt', mode='w') as my_test_file:
+    my_test_file.write('Hey this is the new file I am writing on to the file.')
+
+with open('test.txt', mode='a') as append_test_file:
+    append_test_file.write('\nThis is the second line.\nThis is the third line.\nThis is the forth line.')
+
+# To write a totally new file we can do as follows.
+with open('example.txt', mode='w') as new_file:
+    new_file.write('Hello this is the new file I just created.')
