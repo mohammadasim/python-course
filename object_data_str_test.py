@@ -23,3 +23,43 @@ print(s[-1])
 
 my_list = 3*[0]
 print(my_list)
+my_second_list = [0,0,0]
+
+l = [1,2,[3,4,'hello']]
+l[2][2] = 'goodbye'
+print (l)
+
+L = [5,3,4,6,1]
+L.sort()
+print(L)
+
+d = {'simple_key':'hello'}
+print(d['simple_key'])
+
+e = {'k1':{'k2':'hello'}}
+print(e['k1']['k2'])
+
+f = {'k1':[{'nest_key':['this is deep',['hello']]}]}
+print(f['k1'][0]['nest_key'][1][0])
+
+g = {'k1':[1,2,{'k2':['this is tricky',{'tough':[1,2,['hello']]}]}]}
+print(g['k1'][2]['k2'][1]['tough'][2][0])
+
+# Dictionaries are not sorted, but there is a special type of dictionary called sortedDictionary.
+
+# Lists are mutable but tuples are immutable.
+
+my_tuple = (1,2,3,4,5)
+print(type(my_tuple))
+
+# Sets have only unique elements.
+
+l = [1,2,2,33,4,4,11,22,3,3,2]
+print(set(l))
+
+# False
+# False
+# False
+# True
+# False
+# False
