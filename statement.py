@@ -3,3 +3,11 @@
 # If a condition is true we execute a piece of code, we then put else, followed by code if the condition is false this piece
 # of code will be executed. However if we want to check for multiple conditions before the else part can be executed
 # For this we follow the if part with an elif statement that also has a conditional check.
+loc = 'Auto shop'
+if loc == 'Auto shop':
+    print('Cars are cool')
+elif loc == 'Bank':
+    print('Money is cool')
+else:
+    print("I don't know much")
+    
