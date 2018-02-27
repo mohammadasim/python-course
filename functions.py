@@ -37,16 +37,12 @@ def is_prime(n1):
     OUTPUT: True or False
     '''
     for numb in range(2,n1-1):
-        print('numb before everything {}'.format(numb))
         if numb < n1 and n1 % numb == 0:
-            print(numb)
             return False
-            print('numb after true {}'.format(numb))
             break
         elif numb < n1 and numb != n1 -1:
             continue
-        elif numb == n1 -1:
-            return True
+    return True
 
-result = is_prime(11)
+result = is_prime(3)
 print(result)
