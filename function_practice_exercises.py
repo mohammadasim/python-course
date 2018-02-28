@@ -24,3 +24,28 @@ def makes_twenty(n1,n2):
     return ((n1+n2) == 20 or n1 == 20 or n2 == 20)
 
 print(makes_twenty(2,10))
+
+
+# Write a funciton that capitalizess the first and fourth letters of a name
+def old_macdonald(name):
+    first_letter = name[0]
+    till_forth = name[1:3]
+    forth_letter = name[3]
+    reminder = name[4:]
+    return first_letter.upper() + till_forth + forth_letter.upper() + reminder
+print(old_macdonald('macdonald'))
+
+
+# Given a sentence with the words reversed
+def master_yoda(text):
+    input = text.split()
+    length = len(input)
+    result = ""
+    while length != 0:
+        result = result + " " + input[length -1]
+        length -= 1
+    return result
+
+
+
+print(master_yoda('I am home'))
