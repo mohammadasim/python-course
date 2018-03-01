@@ -46,6 +46,47 @@ def master_yoda(text):
         length -= 1
     return result
 
+# Better version of the above method.
+def master_oda(text):
+    input_list = text.split()
+    input_list.reverse()
+    return ' '.join(input_list)
 
 
 print(master_yoda('I am home'))
+print(master_oda('I am at work'))
+
+print(abs(100 - 5))
+
+
+def has_33(nums):
+    first_occurance = nums.index(3)
+    return nums[first_occurance +1] == 3
+
+print(has_33([1,3,1,3]))
+
+def blackjack(a,b,c):
+    if a+b+c <= 21:
+        return a+b+c
+    elif 11 in [a,b,c] and sum([a,b,c])-10 <= 21:
+        return a+b+c
+    else:
+        return 'BUST'
+
+print(blackjack(5,6,7))
+print(blackjack(9,9,9))
+
+def summer_69(arr):
+    result = 0
+    if 6 in arr:
+        index_of_6 = arr.index(6)
+        index_of_9 = arr.index(9)
+        trimmed_array_1 = arr[:index_of_6]
+        trimmed_array_2 = arr[index_of_9+1:]
+        result = sum(trimmed_array_1) + sum(trimmed_array_2)
+    else:
+        result = sum(arr)
+    return result
+print(summer_69([1,3,5]))
+print(summer_69([4,5,6,7,8,9]))
+print(summer_69([2,1,6,9,11]))
