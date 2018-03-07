@@ -54,5 +54,18 @@ def multiply(l):
 
 print(multiply([1,2,3,-4]))
 
-# Write a python function that checks whether 
+# Write a python function that checks whether a passed string is palindrome or not
+def palindrome(s):
+    return s == s[::-1]
 
+print(palindrome('madam'))
+
+# Write a function that checks whether a passed string is pangram
+import string
+def ispangram(str1,alphabet=string.ascii_lowercase):
+    
+   ''.join(sorted())
+   print(str1)
+
+
+ispangram('a quick brown fox jumps over a lizy dog')
