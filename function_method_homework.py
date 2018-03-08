@@ -63,9 +63,12 @@ print(palindrome('madam'))
 # Write a function that checks whether a passed string is pangram
 import string
 def ispangram(str1,alphabet=string.ascii_lowercase):
-    
-   ''.join(sorted())
-   print(str1)
+    str1_list = list(str1.split())
+    str2 = sorted(''.join(str1_list))
+    st1_set = sorted(set(str2))
+    #uniq_list = list(st1_set)
+    str3 = ''.join(st1_set)
+    return str3 == alphabet
 
 
-ispangram('a quick brown fox jumps over a lizy dog')
+ispangram('a quick')
