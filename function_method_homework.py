@@ -69,7 +69,6 @@ def ispangram(str1,alphabet=string.ascii_lowercase):
         if char.isalpha():
             unique_set.add(char)
             result = ''.join(sorted(unique_set))
-            print(type(result))
     return result == alphabet
     
     
