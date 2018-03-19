@@ -67,17 +67,26 @@ def full_board_check(board):
 
 def player_choice(board):
     player_choice = 0
-    while not player_choice in range(1:10) and not space_check(board, player_choice):
+    while not player_choice in range(1,10) and not space_check(board, player_choice):
         player_choice = input('What position would you like to choose (1:9 ? ')
     return player_choice
 
-place_marker(board,'X',9)
-display_board(board)
-place_marker(board,'X',8)
-display_board(board)
-place_marker(board,'X',7)
-display_board(board)
-print(win_check(board, 'X'))
-print(choose_first())
-print(space_check(board,8))
-print(full_board_check(board))
+def replay():
+    choice = input("Play agian? Enter Yes or No")
+    return choice == 'Yes'
+
+def play_game():
+    play_game = True
+    while play_game == True:
+
+
+
+
+
+
+
+
+
+        if not replay():
+            play_game = False
+            break
