@@ -16,7 +16,7 @@ def display_board(board):
     print('---------')
     print(board[1] + ' | ' + board[2] + ' | ' + board[3])
 
-board = ['#','1','2','3','4','5','6','7','8','9']
+board = ['#','X','Y','X','Y','X','Y','7','8','9']
 
 # Function to take player's input
 def player_input():
@@ -48,7 +48,36 @@ def win_check(board,mark):
     (board[3] == mark and board[5] == makr and board[7] == mark))
 
 def choose_first():
-    pass
+    flip = random.randint(0,1)
+    if flip == 0:
+        return 'Player 1'
+    else:
+        return 'Player 2'
+
+def space_check(board, position):
+    return board[position] != 'X' and board[position] != 'Y'
+
+
+def full_board_check(board):
+    for i in range(1,10):
+        if space_check(board, i):
+            return False
+    # Board if Full we return True        
+    return True
+
+def player_choice(board):
+    player_choice = 0
+    while not player_choice in range(1:10) and not space_check(board, player_choice):
+        player_choice = input('What position would you like to choose (1:9 ? ')
+    return player_choice
 
 place_marker(board,'X',9)
 display_board(board)
+place_marker(board,'X',8)
+display_board(board)
+place_marker(board,'X',7)
+display_board(board)
+print(win_check(board, 'X'))
+print(choose_first())
+print(space_check(board,8))
+print(full_board_check(board))
