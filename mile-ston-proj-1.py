@@ -10,11 +10,11 @@ def clear():
 # Function to display board
 def display_board(board):
     clear()
-    print(board[7] + ' | ' + board[8] + ' | ' + board[9])
+    print(board[7] + '  | ' + board[8] + ' | ' + board[9])
     print('---------')    
-    print(board[4] + ' | ' + board[5] + ' | ' + board[6])
+    print(board[4] + '  | ' + board[5] + ' | ' + board[6])
     print('---------')
-    print(board[1] + ' | ' + board[2] + ' | ' + board[3])
+    print(board[1] + '  | ' + board[2] + ' | ' + board[3])
 
 board = ['#','X','Y','X','Y','X','Y','7','8','9']
 
@@ -80,24 +80,39 @@ def play_game():
     while play_game == True:
         board = ['']*10
         display_board(board)
+        player1_marker,player2_marker = player_input()
         player = choose_first()
         print(player + ' goes first ')
-        player1_marker,player2_marker = player_input()
         game_over = False
         while not game_over:
             if player == 'Player 1':
                 player_input = player_choice(board)
                 place_marker(board,player1_marker,player_input)
-
-
-
-
-
-
-
-
-
-
-        if not replay():
+                if win_check(board,player1_marker):
+                    print(player + ' won!')
+                    game_over = True
+                    break
+                elif full_board_check(board):
+                    print('Its a draw!')
+                    game_over = True
+                    break
+                else:
+                    player == 'Player 2'
+                    player_input = player_choice(board)
+                    place_marker(board,player1_marker,player_input)
+                    if win_check(board,player1_marker):
+                        print(player + ' won!')
+                        game_over = True
+                        break
+                    elif full_board_check(board):
+                        print('Its a draw!')
+                        game_over = True
+                        break
+                    else:
+                        player == 'Player 1'
+        rematch = replay()
+        if not rematch:
             play_game = False
             break
+
+play_game()
