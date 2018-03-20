@@ -78,6 +78,17 @@ def replay():
 def play_game():
     play_game = True
     while play_game == True:
+        board = ['']*10
+        display_board(board)
+        player = choose_first()
+        print(player + ' goes first ')
+        player1_marker,player2_marker = player_input()
+        game_over = False
+        while not game_over:
+            if player == 'Player 1':
+                player_input = player_choice(board)
+                place_marker(board,player1_marker,player_input)
+
 
 
 
