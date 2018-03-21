@@ -115,4 +115,6 @@ def play_game():
             play_game = False
             break
 
+player1_marker,player2_marker = player_input()
+print('These are the markers ' + player1_marker,player2_marker)
 play_game()
