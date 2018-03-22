@@ -22,8 +22,8 @@ class Person():
         self.age = age
         self.sex = sex
 
-    def speak(word):
-        print(word)
+    
+        
        
 
 
@@ -33,4 +33,4 @@ my_cat = Cat('miao')
 print(my_cat)
 
 my_person = Person()
-my_person.speak('Hello')
+my_person.age
