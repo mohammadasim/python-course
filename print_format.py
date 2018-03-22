@@ -5,7 +5,7 @@ from __future__ import print_function
 # 'String here {} then also {}'.format('something1';'something2')
 print ('This is a string {}'.format('INSERTED'))
 print ('The {} {} {}'.format ('fox','brown','quick'))
-print ('The {2} {1} {0}'.format ('fox','bronw','quick'))
+print ('The {2} {1} {0}'.format ('fox','brown','quick'))
 print ('The {q} {b} {f}'.format (f='fox', q='quick', b='brown'))
 
 # Float formatting follows "{value:width.percision f}"
