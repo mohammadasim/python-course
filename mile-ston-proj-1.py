@@ -65,12 +65,13 @@ def full_board_check(board):
     # Board if Full we return True        
     return True
 
+# Returns the player_choice if the position choosen by player is between 1:9 
+# and that position is not already taken.
 def player_choice(board):
     player_choice = 0
     while not player_choice in range(1,10) and not space_check(board, player_choice):
-        player_choice = input('What position would you like to choose (1:9 ? ')
+        player_choice = int(input('What position would you like to choose (1:9) '))
     return player_choice
-
 def replay():
     choice = input("Play agian? Enter Yes or No")
     return choice == 'Yes'
@@ -84,10 +85,12 @@ def play_game():
         player = choose_first()
         print(player + ' goes first ')
         game_over = False
+        print('Game starting')
         while not game_over:
+            print('inside the while loop')
             if player == 'Player 1':
-                player_input = player_choice(board)
-                place_marker(board,player1_marker,player_input)
+                player_move = player_choice(board)
+                place_marker(board,player1_marker,player_move)
                 if win_check(board,player1_marker):
                     print(player + ' won!')
                     game_over = True
@@ -98,8 +101,8 @@ def play_game():
                     break
                 else:
                     player == 'Player 2'
-                    player_input = player_choice(board)
-                    place_marker(board,player1_marker,player_input)
+                    player_move = player_choice(board)
+                    place_marker(board,player1_marker,player_move)
                     if win_check(board,player1_marker):
                         print(player + ' won!')
                         game_over = True
@@ -115,6 +118,14 @@ def play_game():
             play_game = False
             break
 
-player1_marker,player2_marker = player_input()
-print('These are the markers ' + player1_marker,player2_marker)
-play_game()
+#player1_marker,player2_marker = player_input()
+#print('These are the markers ' + player1_marker,player2_marker)
+#play_game()
+#print(type(player_choice(board)))
+list_of_ints = list(range(1,10))
+print(list_of_ints)
+
+def check(entry):
+    return not entry in range(1,10)
+
+print(check(1))
