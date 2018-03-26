@@ -16,7 +16,7 @@ def display_board(board):
     print('---------')
     print(board[1] + '  | ' + board[2] + ' | ' + board[3])
 
-board = ['#','X','Y','X','Y','X','Y','7','8','9']
+
 
 # Function to take player's input
 def player_input():
@@ -58,6 +58,15 @@ def space_check(board, position):
     return board[position] != 'X' and board[position] != 'Y'
 
 
+# Returns the player_choice if the position choosen by player is between 1:9 
+# and that position is not already taken.
+def player_choice(board):
+    player_choice = 0
+    while not player_choice in range(1,10) or not space_check(board, player_choice):
+        player_choice = int(input('What position would you like to choose (1:9) '))
+    return player_choice
+
+
 def full_board_check(board):
     for i in range(1,10):
         if space_check(board, i):
@@ -65,15 +74,9 @@ def full_board_check(board):
     # Board if Full we return True        
     return True
 
-# Returns the player_choice if the position choosen by player is between 1:9 
-# and that position is not already taken.
-def player_choice(board):
-    player_choice = 0
-    while not player_choice in range(1,10) and not space_check(board, player_choice):
-        player_choice = int(input('What position would you like to choose (1:9) '))
-    return player_choice
+
 def replay():
-    choice = input("Play agian? Enter Yes or No")
+    choice = input("Play agian? Enter Yes or No ")
     return choice == 'Yes'
 
 def play_game():
@@ -89,43 +92,21 @@ def play_game():
         while not game_over:
             print('inside the while loop')
             if player == 'Player 1':
+                print(player + ' playing')
                 player_move = player_choice(board)
                 place_marker(board,player1_marker,player_move)
-                if win_check(board,player1_marker):
-                    print(player + ' won!')
-                    game_over = True
-                    break
-                elif full_board_check(board):
-                    print('Its a draw!')
-                    game_over = True
-                    break
-                else:
-                    player == 'Player 2'
-                    player_move = player_choice(board)
-                    place_marker(board,player1_marker,player_move)
-                    if win_check(board,player1_marker):
-                        print(player + ' won!')
-                        game_over = True
-                        break
-                    elif full_board_check(board):
-                        print('Its a draw!')
-                        game_over = True
-                        break
-                    else:
-                        player == 'Player 1'
+                game_over = True
+            else:
+                print(player + ' playing')
+                player_move = player_choice(board)
+                place_marker(board,player1_marker,player_move)
+                game_over = True
         rematch = replay()
         if not rematch:
             play_game = False
             break
 
-#player1_marker,player2_marker = player_input()
-#print('These are the markers ' + player1_marker,player2_marker)
-#play_game()
-#print(type(player_choice(board)))
-list_of_ints = list(range(1,10))
-print(list_of_ints)
 
-def check(entry):
-    return not entry in range(1,10)
 
-print(check(1))
+#board = ['#','','','','','','','','','']
+play_game()
