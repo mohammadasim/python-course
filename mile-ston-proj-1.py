@@ -82,7 +82,7 @@ def replay():
 def play_game():
     play_game = True
     while play_game == True:
-        board = ['']*10
+        board = ['#','1','2','3','4','5','6','7','8','9']
         display_board(board)
         player1_marker,player2_marker = player_input()
         player = choose_first()
@@ -95,12 +95,32 @@ def play_game():
                 print(player + ' playing')
                 player_move = player_choice(board)
                 place_marker(board,player1_marker,player_move)
-                game_over = True
-            else:
+                display_board(board)
+                if win_check(board,player_move):
+                    print(player + ' has won!')
+                    game_over = True
+                    break
+                elif full_board_check(board):
+                    print('It is a draw!')
+                    game_over = True
+                    break
+                print('coming to the end of the if loop ' + player)
+                player == 'Player 2'
+            elif player == 'Player 2':
                 print(player + ' playing')
                 player_move = player_choice(board)
                 place_marker(board,player1_marker,player_move)
-                game_over = True
+                display_board(board)
+                if win_check(board,player_move):
+                    print(player + ' has won!')
+                    game_over = True
+                    break
+                elif full_board_check(board):
+                    print('It is a draw ')
+                    game_over = True
+                    break
+                print('coming to the end of the if loop ' + player)
+                player == 'Player 2'
         rematch = replay()
         if not rematch:
             play_game = False
