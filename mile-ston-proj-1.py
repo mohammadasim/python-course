@@ -68,11 +68,14 @@ def player_choice(board):
 
 
 def full_board_check(board):
+    result = ''
     for i in range(1,10):
+        print(i)
         if space_check(board, i):
-            return False
+            result = False
+            return result
     # Board if Full we return True        
-    return True
+    return result
 
 
 def replay():
@@ -90,7 +93,6 @@ def play_game():
         game_over = False
         print('Game starting')
         while not game_over:
-            print('inside the while loop')
             if player == 'Player 1':
                 print(player + ' playing')
                 player_move = player_choice(board)
@@ -105,11 +107,12 @@ def play_game():
                     game_over = True
                     break
                 print('coming to the end of the if loop ' + player)
-                player == 'Player 2'
-            elif player == 'Player 2':
+                player = 'Player 2'
+                print('The player should be now ' + player)
+            if player == 'Player 2':
                 print(player + ' playing')
                 player_move = player_choice(board)
-                place_marker(board,player1_marker,player_move)
+                place_marker(board,player2_marker,player_move)
                 display_board(board)
                 if win_check(board,player_move):
                     print(player + ' has won!')
@@ -120,7 +123,8 @@ def play_game():
                     game_over = True
                     break
                 print('coming to the end of the if loop ' + player)
-                player == 'Player 2'
+                player = 'Player 1'
+                print('The player should be now ' + player)
         rematch = replay()
         if not rematch:
             play_game = False
@@ -128,5 +132,7 @@ def play_game():
 
 
 
-#board = ['#','','','','','','','','','']
-play_game()
+board = ['#','O','X','O','X','O','X','X','O','X']
+#print(win_check(board, 'X'))
+print(full_board_check(board))
+#play_game()
