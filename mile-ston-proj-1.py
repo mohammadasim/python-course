@@ -67,15 +67,6 @@ def player_choice(board):
     return player_choice
 
 
-def full_board_check(board):
-    result = ''
-    for i in range(1,10):
-        print(i)
-        if space_check(board, i):
-            result = False
-            return result
-    # Board if Full we return True        
-    return result
 
 
 def replay():
@@ -130,9 +121,21 @@ def play_game():
             play_game = False
             break
 
+# If the space is available will return True
+def space_check(board,position):
+    return board[position] != 'X' and board[position] != 'O'
 
 
-board = ['#','O','X','O','X','O','X','X','O','X']
-#print(win_check(board, 'X'))
+def full_board_check(board):
+    for i in range(1,10):
+        if space_check(board,i):
+            return False
+            break
+    return True
+               
+
+
+board = ['#','O','X','O','X','O','6','7','8','9']
+#print(space_check(board,1))
 print(full_board_check(board))
 #play_game()
