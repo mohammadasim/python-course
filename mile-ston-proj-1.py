@@ -45,7 +45,7 @@ def win_check(board,mark):
     (board[2] == mark and board[5] == mark and board[8] == mark) or
     (board[3] == mark and board[6] == mark and board[9] == mark) or
     (board[1] == mark and board[5] == mark and board[9] == mark) or
-    (board[3] == mark and board[5] == makr and board[7] == mark))
+    (board[3] == mark and board[5] == mark and board[7] == mark))
 
 def choose_first():
     flip = random.randint(0,1)
@@ -66,7 +66,16 @@ def player_choice(board):
         player_choice = int(input('What position would you like to choose (1:9) '))
     return player_choice
 
+# If the space is available will return True
+def space_check(board,position):
+    return board[position] != 'X' and board[position] != 'O'
 
+
+def full_board_check(board):
+    for i in range(1,10):
+        if space_check(board,i):
+            return False
+    return True
 
 
 def replay():
@@ -89,7 +98,7 @@ def play_game():
                 player_move = player_choice(board)
                 place_marker(board,player1_marker,player_move)
                 display_board(board)
-                if win_check(board,player_move):
+                if win_check(board,player1_marker):
                     print(player + ' has won!')
                     game_over = True
                     break
@@ -97,15 +106,13 @@ def play_game():
                     print('It is a draw!')
                     game_over = True
                     break
-                print('coming to the end of the if loop ' + player)
                 player = 'Player 2'
-                print('The player should be now ' + player)
             if player == 'Player 2':
                 print(player + ' playing')
                 player_move = player_choice(board)
                 place_marker(board,player2_marker,player_move)
                 display_board(board)
-                if win_check(board,player_move):
+                if win_check(board,player2_marker):
                     print(player + ' has won!')
                     game_over = True
                     break
@@ -113,29 +120,13 @@ def play_game():
                     print('It is a draw ')
                     game_over = True
                     break
-                print('coming to the end of the if loop ' + player)
                 player = 'Player 1'
-                print('The player should be now ' + player)
         rematch = replay()
         if not rematch:
             play_game = False
             break
 
-# If the space is available will return True
-def space_check(board,position):
-    return board[position] != 'X' and board[position] != 'O'
 
-
-def full_board_check(board):
-    for i in range(1,10):
-        if space_check(board,i):
-            return False
-            break
-    return True
                
 
-
-board = ['#','O','X','O','X','O','6','7','8','9']
-#print(space_check(board,1))
-print(full_board_check(board))
-#play_game()
+play_game()
