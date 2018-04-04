@@ -9,11 +9,6 @@ class Line:
         # Tuple unpacking
         x1,x2 = self.coor1
         y1,y2 = self.coor2
-        # casting as floating point numbers
-        x1 = float(x1)
-        x2 = float(x2)
-        y1 = float(y1)
-        y2 = float(y2)
         result = ((x2-x1)**2 + (y2-y1)**2)**0.5
         return result
 
@@ -22,11 +17,6 @@ class Line:
         # Tuple unpacking
         x1,x2 = self.coor1
         y1,y2 = self.coor2
-        # casting as floating point numbers
-        x1 = float(x1)
-        x2 = float(x2)
-        y1 = float(y1)
-        y2 = float(y2)
         result = (y2 - y1) / (x2 - x1)
         return result
 
@@ -48,16 +38,12 @@ class Cylinder:
     def volume(self):
         h = self.height
         r = self.radius
-        h = float(h)
-        r = float(r)
         volume = Cylinder.pi * (r)**2 * h
         return volume  
 
     def surface_area(self):
         h = self.height
         r = self.radius
-        h = float(h)
-        r = float(r)
         surface_area = 2*Cylinder.pi*r*h + 2*Cylinder.pi*(r)**2
         return surface_area
 
