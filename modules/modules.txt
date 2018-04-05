@@ -1,0 +1,13 @@
+# PyPI is a repository for open-source third party python packages.
+# Modules are just .py scripts that you call in another .py script.
+# Packages are a collection of modules
+# __init__.py has to be in the same folder to let python know that it should treat this as a package.
+# In this folder we created two files mymodule.py and myprogram.py and we imported a function from one of it into another.
+
+Package:
+We have created two folders, MyMainPackage and SubPackage. In order for python to understand that these folders are packages we have to create
+__init__.py files in both these folders.
+
+Using this folder structure we were able to use functions in other packages in our myprogram.py file
+
+
