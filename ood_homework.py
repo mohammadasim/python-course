@@ -7,16 +7,16 @@ class Line:
     
     def distance(self):
         # Tuple unpacking
-        x1,x2 = self.coor1
-        y1,y2 = self.coor2
+        x1,y1 = self.coor1
+        x2,y2 = self.coor2
         result = ((x2-x1)**2 + (y2-y1)**2)**0.5
         return result
 
     
     def slope(self):
         # Tuple unpacking
-        x1,x2 = self.coor1
-        y1,y2 = self.coor2
+        x1,y1 = self.coor1
+        x2,y2 = self.coor2
         result = (y2 - y1) / (x2 - x1)
         return result
 
