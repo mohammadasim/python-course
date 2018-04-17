@@ -65,7 +65,47 @@ class Deck():
         '''
         random.shuffle(self.deck)
 
+    def deal(self):
+        single_card = self.deck.pop()
+        return single_card
+
+class Hand():
+
+    def __init__(self):
+        self.cards = []
+        self.value = 0
+        self.aces = 1
+
+    def add_card(self, card):
+        '''
+        Increases the value of the hand by the 
+        rank of the card added. If the card is
+        an Ace increment the value of aces by 1
+        '''
+        self.cards.append(card)
+        self.value += values[card.rank]
+        if card.rank == 'Ace'
+            self.aces += 1
+
+    def adjust_for_ace(self):
+        '''
+        If the hand contains an ace and the player
+        goes over 21, the value of the player is reduced
+        by 10 and the value of aces is also decremented by 1
+        '''
+        while self.value > 21 and self.aces:
+            self.value -= 10
+            self.aces -= 1
+
+
+class Chips():
+
+    def __init__(self):
+        self.total = 100
+        self.bet = 0
+
     
+        
 
 
     
