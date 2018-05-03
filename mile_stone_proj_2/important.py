@@ -17,3 +17,5 @@ if one:
 
 if two:
     print('2 is treated as true')
+
+value = int(input('Please enter a number '))

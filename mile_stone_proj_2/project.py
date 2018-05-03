@@ -111,7 +111,18 @@ class Chips():
         self.total -= self.bet
 
     
-        
+  def take_bet(chips):
+      while True:
+          try:
+              chips.bet = int(input("How many chips would you like to bet ?"))
+          except ValueError as wrong_input_format:
+              print("please enter integer")
+          else:
+              if chips.bet > chips.total:
+                  print("Sorry you don't have enough chips, you have {}".format(chips.total))
+              else:
+                  break
+                  
 
 
     
