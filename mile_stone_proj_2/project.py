@@ -84,7 +84,7 @@ class Hand():
         '''
         self.cards.append(card)
         self.value += values[card.rank]
-        if card.rank == 'Ace'
+        if card.rank == "Ace":
             self.aces += 1
 
     def adjust_for_ace(self):
@@ -99,6 +99,9 @@ class Hand():
 
 
 class Chips():
+    '''
+    A class representing chips in the game.
+    '''
 
     def __init__(self):
         self.total = 100 # This can be set to a default value or supplied by a user input
@@ -109,21 +112,51 @@ class Chips():
 
     def lose_bet(self):
         self.total -= self.bet
+   
+def take_bet(chips):
+    '''
+    This functions takes chip object as input 
+    and takes bets from the player.
+    '''
+    while True:
+        try:
+            chips.bet = int(input("How many chips would you like to bet ? "))
+        except ValueError:
+            print("please enter integer")
+        else:
+            if chips.bet > chips.total:
+                print("Sorry you don't have enough chips, you have {}".format(chips.total))
+            else:
+                break
 
-    
-  def take_bet(chips):
-      while True:
-          try:
-              chips.bet = int(input("How many chips would you like to bet ?"))
-          except ValueError as wrong_input_format:
-              print("please enter integer")
-          else:
-              if chips.bet > chips.total:
-                  print("Sorry you don't have enough chips, you have {}".format(chips.total))
-              else:
-                  break
-                  
+def hit(deck, hand): 
+    '''
+    Takes Deck and Hand objects as arguments.
+    Deals one card off the deck and adds it to
+    the hand. Checks for aces in the even a player's
+    hand exceeds 21
+    '''
+    hand.add_card(deck.deal())
+    hand.adjust_for_ace()
+
+def hit_or_stand(deck, hand):
+    '''
+    Prompts player to Hit or Stand
+    Accepts deck and player's hand as argument.
+    Assigns 'playing' as a Global variable.
+    If the player hits, executes the hit() function
+    If the player stands, set the 'playing variable to false
+    '''
+    global PLAYING
+    player_input = (input("Would you like to Hit or Stand? Enter H or S ")).upper()
+    if player_input == "H":
+        hit(deck, hand)
+        PLAYING = True
+    else:
+        PLAYING = False
 
 
-    
 
+my_deck = Deck()
+player = Hand()
+hit_or_stand(my_deck, player)
