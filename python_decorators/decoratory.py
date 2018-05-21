@@ -12,4 +12,41 @@ We use the @ operator and are then placed on top of the original function.
 def func():
     return 1
     
-print(type(func))
+#print(type(func))
+#print(func)
+
+def hello():
+    return "Hello!"
+
+greet = hello
+
+#print(greet)
+#print(greet())
+#del hello
+#hello()
+'''
+Important point to note is that functions are objects that can be passed to another object.
+Above we deleted the hello() function but we can still execute the greet as a function, because hello() 
+function was passed on to it.
+'''
+#print(greet())
+
+def hello(name='Asim'):
+    print('The hello function has been executed!')
+
+    def greet():
+        return '\t This is the greet() func inside hello!'
+    
+    def welcome():
+        return '\t this is welcome() inside hello'
+    
+    print(greet())
+    print(welcome())
+    print('This is the end of hello function')
+'''
+Important point to notice is that greet() and welcome functions are only visible inside the hello() function.
+Outside these functions these functions are not visible. so how can we access these functions.  Well if we can make 
+hello() to return a function then it will work. So the hello() function will be modified to return the greet or welcome function 
+rather then just using the print statement.
+'''
+print(hello())
