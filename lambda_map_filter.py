@@ -14,6 +14,7 @@ print(list(map(square, my_num)))
 
 
 # Filter applies a check on to a list of iterables
+# With filter we have to pass a function that does the check and we need to surround the filter with a list too.
 
 def check_even(num):
     return num % 2 == 0

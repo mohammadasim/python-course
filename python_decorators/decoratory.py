@@ -8,6 +8,7 @@ But what if we then want to remove that extra functionality. We would need to de
 A better way is to have an on/off switch to quickly add this functionality.
 Python has decorators that allow us to tack on extra functionality to an already existing function.
 We use the @ operator and are then placed on top of the original function.
+A decorator is just a function that gets called before the other function.
 '''
 def func():
     return 1
@@ -105,6 +106,8 @@ def func_needs_decorator():
 
 '''
 The shortest way is as follows
+Hence it proves the point that decorator is a function that gets called before the other function.
+What happened was that func_needs_docrator was passed on as an argument and was replaced with wrap_func, so in reality wrap_func was run not func_needs_decorator
 '''
 @new_decorator
 def func_needs_decorator():
@@ -115,3 +118,8 @@ def func_needs_decorator():
     print('I want to be decorated!!')
 
 print(func_needs_decorator())
+
+
+'''
+A decorator is just a function that gets called before another function.
+''
